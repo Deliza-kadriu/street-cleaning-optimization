@@ -1,6 +1,6 @@
 # Street Cleaning Optimization
 
-This repository contains the implementation of a **Street Cleaning Optimization Problem** based on graph-routing and coverage algorithms.
+This repository is being developed for an Advanced Algorithms course project on a **Street Cleaning Optimization Problem** based on graph-routing and coverage algorithms.
 
 The goal is to find efficient routes for a fleet of street-cleaning vehicles while considering operational constraints such as time, street priority, vehicle capabilities, and available resources.
 
