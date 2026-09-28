@@ -1,0 +1,38 @@
+name: Project task
+description: Propose or plan a contribution to the course project.
+title: "[Task]: "
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should this task achieve, and why is it needed?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and proposed approach
+      description: Describe the affected modules, assumptions, and intended approach.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable results that will show this task is complete.
+      placeholder: "- [ ] Expected behavior is documented and demonstrated."
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: How will correctness or completion be checked?
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and coordination
+      description: Link related issues and identify shared data formats or decisions needed first.
