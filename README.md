@@ -28,55 +28,56 @@ The main objective is to generate routes that satisfy the required constraints w
 
 The problem is computationally difficult and is intended to be approached using graph algorithms, heuristics, approximation methods, and other optimization techniques.
 
+## Run the deterministic CLIPP baseline
+
+Requires Python 3.10 or newer. No third-party Python packages are required.
+Run from the repository root:
+
+```powershell
+python main.py
+# Or specify another instance
+python main.py data/input/instance_E.txt
+
+
+The default input is `data/input/instance_E.txt`. Valid solutions are written to
+`data/output/<instance-name>_solution.txt`. A greedy assignment failure is reported
+with diagnostics and a nonzero exit status. The current implementation may take
+several minutes on instance_E because shortest paths are recomputed for candidates.
+
+The supplied instance_E solution was accepted by the external validator with all
+356 mandatory streets and 91 optional streets cleaned, at score 0.58363268951526.
+See [the baseline notes](docs/greedy-baseline.md) for the algorithm and formats.
+
 ## Project Structure
 
 ```text
-street-cleaning/
-|
-├── README.md
-├── .gitignore
-|
-├── src/
-|   ├── algorithms/
-|   ├── graph/
-|   └── main.py
-|
-├── visualization/
-|   ├── src/
-|   ├── public/
-|   └── package.json
-|
+street-cleaning-optimization/
+├── main.py
+├── clipp/
+│   ├── __init__.py
+│   ├── parser.py
+│   ├── graph.py
+│   ├── solver.py
+│   ├── validator.py
+│   ├── scoring.py
+│   └── output.py
 ├── data/
-|   ├── input/
-|   └── output/
-|
+│   ├── input/
+│   └── output/
 ├── tests/
-|
-└── docs/
+├── docs/
+├── visualization/
+│   ├── public/
+│   └── src/
+├── README.md
+└── CONTRIBUTING.md
 ```
 
-### `src/`
+### `clipp/`
 
-Contains the core implementation of the project.
-
-### `src/graph/`
-
-Contains the graph representation of the street network.
-
-This includes:
-
-- Intersections
-- Streets
-- Direction of travel
-- Distance
-- Traversal time
-- Street type and requirements
-
-### `src/algorithms/`
-
-Contains the algorithms used to generate and optimize cleaning routes.
-
-Different approaches can be implemented independently and compared against each other.
+The Python package separates parsing, graph routing, greedy solving, validation,
+scoring, and output. `main.py` coordinates these modules. The visualization remains
+separate; it does not need to be installed to run the Python solver.
 
 ### `visualization/`
 

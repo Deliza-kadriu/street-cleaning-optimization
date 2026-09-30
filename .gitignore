@@ -14,5 +14,8 @@ build/
 .idea/
 .vscode/
 
-data/output/*.json
+data/output/*
 !data/output/.gitkeep
+
+.venv/
+venv/
